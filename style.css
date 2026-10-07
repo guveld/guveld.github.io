@@ -128,7 +128,8 @@ body {
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo {
@@ -137,12 +138,15 @@ body {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.02em;
-  margin-right: auto;
+  z-index: 2;
 }
 
 .nav-logo .dot { color: var(--accent); }
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   list-style: none;
   gap: 8px;
@@ -185,6 +189,7 @@ body {
   border-radius: 99px;
   transition: all var(--transition);
   white-space: nowrap;
+  z-index: 2;
 }
 
 .btn-nav:hover {
@@ -200,7 +205,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 4px;
-  margin-left: auto;
+  z-index: 2;
 }
 
 .hamburger span {
@@ -1121,9 +1126,12 @@ body {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 960px) {
   .nav-links, .btn-nav { display: none; }
   .hamburger { display: flex; }
+}
+
+@media (max-width: 680px) {
 
   .hero-name { font-size: clamp(3.5rem, 16vw, 6rem); }
 
